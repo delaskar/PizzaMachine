@@ -131,34 +131,30 @@ MENU = {
             2: {
                 "VEGAN KNOTS": {
                     "Ingredients": [
-                        "GARLIC PUREE",
                         "VEGAN MOZZARELLA",
                         "VEGAN SAUSAGE CRUMBLE",
                         "GRILLED ONION",
                         "THE BLEND",
                         "GARLIC PUREE DRIZZLE",
-                        "CLASSIC TOMATO DIPPING SAUCE"
+                        "CLASSIC TOMATO"
                     ], "price": 80.0
                 }
             },
             3: {
                 "MOZZ KNOTS": {
                     "Ingredients": [
-                        "PARMESAN-ROMANO SAUCE",
                         "PARMESAN-ROMANO",
                         "SHREDDED MOZZARELLA",
-                        "GARLIC PUREE",
                         "THE BLEND",
                         "GARLIC PUREE DRIZZLE",
                         "GRATED PARMESAN-ROMANO",
-                        "CLASSIC TOMATO DIPPING SAUCE"
+                        "TOMATO"
                     ], "price": 75.0
                 }
             },
             4: {
                 "HOT KNOTS": {
                     "Ingredients": [
-                        "PARMESAN-ROMANO SAUCE",
                         "PARMESAN-ROMANO",
                         "GARLIC PUREE",
                         "SHREDDED MOZZARELLA",
@@ -166,7 +162,7 @@ MENU = {
                         "JALAPENO PEPPERS",
                         "HOT HONEY",
                         "THE BLEND",
-                        "CLASSIC TOMATO DIPPING SAUCE"
+                        "CLASSIC TOMATO"
                     ], "price": 100.0
                 }
             },
