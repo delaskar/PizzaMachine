@@ -2,7 +2,7 @@ from menu import MENU
 from prettytable import PrettyTable
 
 
-# Presetpizza
+# Presetpizza class
 class Presetpizzas:
 
     def __init__(self):
@@ -14,21 +14,19 @@ class Presetpizzas:
         self.ingredients = []
         self.prices = []
 
-
     def listPresetCategories(self):
         """This method return the list of preset categories"""
-        
+
         table = PrettyTable()
-        table.field_names = ["Letter", "Categories"]        
+        table.field_names = ["Letter", "Categories"]
 
         categoryNames = []
         for key1, value1 in MENU.items():
             for key2, value2 in value1.items():
                 table.add_row([key1, key2])
                 categoryNames.append(key2)
-        
-        print(table)
 
+        print(table)
 
     def defaultPizza(self):
         """This method return a table of pizza menu so that you can explore 
@@ -38,8 +36,9 @@ class Presetpizzas:
         table2.field_names = ["Category", "Number", "Pizza Names", "Ingredients", "price"]
 
         # User's letter - Selection of the Category
-        self.category_letter = input("Select the category by writing the letter: ")
-        
+        self.category_letter = input(
+            "Select the category by writing the letter: ")
+
         for key1, value1 in MENU[self.category_letter].items():
             self.category_names = key1
             for key2, value2 in value1.items():
@@ -53,8 +52,9 @@ class Presetpizzas:
                             self.prices.append(value4)
 
         # Convert nested list (self.ingredients) to lowercase to save space in the table
-        result_sub_list = [[str(item_).lower()for item_ in sub_list]for sub_list in self.ingredients]
-        
+        result_sub_list = [[str(item_).lower()for item_ in sub_list]
+                           for sub_list in self.ingredients]
+
         category = self.category_names
         for item in range(0, len(self.pizza_numbers)):
             numbers = self.pizza_numbers[item]
@@ -62,16 +62,22 @@ class Presetpizzas:
             ingredients = result_sub_list[item]
             price = self.prices[item]
 
-            table2.add_row([category, numbers, names, ',' .join(ingredients), price])
-        
+            table2.add_row([category, numbers, names,
+                           ',' .join(ingredients), price])
+
         return table2
 
 
+    def defaultOrder(self):
+        
+         self.number_selection = int(input("Choose the number of pizza you want: "))
+         
+        
 
 
 
 if __name__ == "__main__":
-    
+
     # Create the Object "oPresetPizza"
     oPresetPizza = Presetpizzas()
 
