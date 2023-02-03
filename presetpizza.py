@@ -17,23 +17,23 @@ class Presetpizzas:
     def listPresetCategories(self):
         """This method return the list of preset categories"""
 
-        table = PrettyTable()
-        table.field_names = ["Letter", "Categories"]
+        oTable = PrettyTable()
+        oTable.field_names = ["Letter", "Categories"]
 
         categoryNames = []
         for key1, value1 in MENU.items():
             for key2, value2 in value1.items():
-                table.add_row([key1, key2])
+                oTable.add_row([key1, key2])
                 categoryNames.append(key2)
 
-        print(table)
+        print(oTable)
 
     def defaultPizza(self):
         """This method return a table of pizza menu so that you can explore 
         the entire catalog it is advisable to use this method within a while loop"""
 
-        table2 = PrettyTable()
-        table2.field_names = ["Category", "Number", "Pizza Names", "Ingredients", "price"]
+        oTable2 = PrettyTable()
+        oTable2.field_names = ["Category", "Number", "Pizza Names", "Ingredients", "price"]
 
         # User's letter - Selection of the Category
         self.category_letter = input(
@@ -52,26 +52,43 @@ class Presetpizzas:
                             self.prices.append(value4)
 
         # Convert nested list (self.ingredients) to lowercase to save space in the table
-        result_sub_list = [[str(item_).lower()for item_ in sub_list]
-                           for sub_list in self.ingredients]
+        self.ingredients = [[str(item_).lower()for item_ in sub_list] for sub_list in self.ingredients]
 
         category = self.category_names
         for item in range(0, len(self.pizza_numbers)):
             numbers = self.pizza_numbers[item]
             names = self.pizza_names[item]
-            ingredients = result_sub_list[item]
+            ingredients = self.ingredients[item]
             price = self.prices[item]
 
-            table2.add_row([category, numbers, names,
+            oTable2.add_row([category, numbers, names,
                            ',' .join(ingredients), price])
 
-        return table2
+        return oTable2
 
 
     def defaultOrder(self):
         
-         self.number_selection = int(input("Choose the number of pizza you want: "))
-         
+        oTotalt = PrettyTable()
+        oTotalt.field_names = ["Pizza Selected", "Ingredients", "Total"]
+
+
+        self.number_selection = int(input("Choose the number of pizza you want: "))
+        number_selected = self.number_selection - 1
+
+        pizzaName = self.pizza_names[number_selected]
+        pizza_ingredients = self.ingredients[number_selected]
+        price = self.prices[number_selected]
+
+        # I need create a Dictionary as a new attribute from my class that can store: pizzaName, pizza_ingrediens and price.
+
+        if self.number_selection in self.pizza_numbers:
+            oTotalt.add_row([pizzaName, ',' .join(pizza_ingredients), price])
+
+        print("")
+        print("↓↓↓ Here is your order and the total to pay. ↓↓↓")
+        print("")
+        print(oTotalt)
         
 
 
@@ -84,5 +101,7 @@ if __name__ == "__main__":
     # Call methods from the Object (oPresetPizza)
     oPresetPizza.listPresetCategories()
     print(oPresetPizza.defaultPizza())
+    oPresetPizza.defaultOrder()
 
+    print("")
     print("This is the class Presetpizza")
