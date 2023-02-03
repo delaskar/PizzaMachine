@@ -37,12 +37,10 @@ class Presetpizzas:
         the entire catalog it is advisable to use this method within a while loop"""
 
         oTable2 = PrettyTable()
-        oTable2.field_names = ["Category", "Number",
-                               "Pizza Names", "Ingredients", "price"]
+        oTable2.field_names = ["Category", "Number", "Pizza Names", "Ingredients", "price"]
 
         # User's letter - Selection of the Category
-        self.category_letter = input(
-            "Select the category by writing the letter: ")
+        self.category_letter = input("Select the category by writing the letter: ")
 
         for key1, value1 in MENU[self.category_letter].items():
             self.category_names = key1
@@ -67,8 +65,7 @@ class Presetpizzas:
             ingredients = self.ingredients[item]
             price = self.prices[item]
 
-            oTable2.add_row([category, numbers, names,
-                             ',' .join(ingredients), price])
+            oTable2.add_row([category, numbers, names, ',' .join(ingredients), price])
 
         return oTable2
 
@@ -80,8 +77,7 @@ class Presetpizzas:
         oTotalt = PrettyTable()
         oTotalt.field_names = ["Pizza Selected", "Ingredients", "Total"]
 
-        self.number_selection = int(
-            input("Choose the number of pizza you want: "))
+        self.number_selection = int(input("Choose the number of pizza you want: "))
         number_selected = self.number_selection - 1
 
         pizzaName = self.pizza_names[number_selected]
