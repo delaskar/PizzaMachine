@@ -55,7 +55,7 @@ class Custompizza:
        
         while True:
 
-            if self.counter_order <= self.maximun_order:
+            if self.counter_order < self.maximun_order:
                 # Call showToppingd
                 self.showToppings()
             
@@ -89,7 +89,7 @@ class Custompizza:
                 
                 is_On = True
                 while is_On:
-                    if self.add_topping_counter <= self.maximum_number_additions:
+                    if self.add_topping_counter < self.maximum_number_additions:
                         back_off = input("Do you want to select an option? Press 'y' or 'n': ").lower()
                         if back_off == 'n':
                             exec(clear_cmd)
@@ -115,10 +115,6 @@ class Custompizza:
                             print('')
                             print("WRONG TYPING. TRY AGAIN.")
                             break
-                    else:
-                        print("")
-                        print("=== You have reached your maximum number of toppings. ===")
-                        is_On = False
 
                 if self.add_topping_counter == self.maximum_number_additions:
                     self.counter_order += 1
@@ -130,8 +126,8 @@ class Custompizza:
                     pass
 
             else:
-                for item in self.maximun_order:
-                    print("processing your order...")
+                for item in range(0, self.maximun_order):
+                    print(f"processing your order {item + 1}...")
                 break
 
 
