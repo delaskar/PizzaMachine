@@ -98,6 +98,7 @@ class Presetpizzas:
         print("")
         print(oTotalt)
 
+# I need create a paymant method. Your purchese is successful
 
 if __name__ == "__main__":
 
