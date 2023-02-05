@@ -3,19 +3,18 @@ from prettytable import PrettyTable
 import os
 
 
-class Abortorder(Exception):
-    """raise this exeption to abort the order."""
-    pass
-
 
 class Custompizza:
     
     def __init__(self):
-        self.size = [6, 8]
         self.category_numbers = []
         self.number_toppings_selected = []  # Store the options of toppings
-        self.topping_names = []  # Store the name of toppings
-        self.topping_selected = []
+        self.topping_selected = []  # Store the toppings selected by user
+
+        self.is_On = True
+        self.back_off = ''
+        self.maximum_toppings = 4
+        self.addtion_counter = 0
 
 
     def showToppings(self):
@@ -35,6 +34,7 @@ class Custompizza:
 
 
     def availableToppings(self):
+        """This method prints a table of the toppings I have available."""
 
         clear_cmd = 'os.system("clear")'
        
@@ -49,10 +49,12 @@ class Custompizza:
                 exec(clear_cmd)
                 break
             else:
-                print("Selection must be a number from category. Try again")
+                print("Selection must be a number from category. Try again.")
 
         # converting the user input to an integer
         user_topping = int(user_topping)
+
+        self.topping_names = []  # Store the name of toppings
 
         # List the toppings that are within the categories
         if user_topping in self.category_numbers:
@@ -66,47 +68,68 @@ class Custompizza:
 
             print(oTtoppings)
 
-        else:
-            print("WRONG TYPING. TRY AGAIN.")
+        elif user_topping not in self.category_numbers:
+            print("Selection must be a number from category. Try again.")
+            self.is_On = False
 
 
-        
-        
     def selectTopping(self):
+        """This method prints and stores the selected additions."""
 
         clear_cmd = 'os.system("clear")'
 
-        back_off = input("Do you want to select an option? Press 'y' or 'n': ").lower()
-        if back_off == 'n':
-            pass
-            # exec(clear_cmd)
-        elif back_off == 'y':
+        oTselection = PrettyTable()
+        oTselection.field_names = ["Toppings Selected"]
+
+        self.back_off = input("Do you want to select an option? Press 'y' or 'n': ").lower()
+        if self.back_off == 'n':
+            exec(clear_cmd)
+        elif self.back_off == 'y':
             number_selection = int(input("Write the number of your choice: "))
-            # exec(clear_cmd)
+            exec(clear_cmd)
             if number_selection in self.number_toppings_selected:
                 index_selected = number_selection - 1
                 selection = self.topping_names[index_selected]
                 self.topping_selected.append(selection)
-
-                print('')
-                print("Topping Selected ===> ", ', ' .join(self.topping_selected))
-                print('')
+                self.addtion_counter += 1
             else:
                 print('')
                 print("WRONG TYPING. TRY AGAIN.")
+                self.is_On = False
+
+            # Create a table of table of toppings selected
+            if self.addtion_counter == self.maximum_toppings:
+                for item in self.topping_selected:
+                    oTselection.add_row([item])
+                print(oTselection)
+                self.is_On = False
+            elif self.addtion_counter != self.maximum_toppings:
+                print(f"You have selected ===> {self.addtion_counter} Toppings")
+                print("Topping Selected ===> ", ', ' .join(self.topping_selected))
         else:
             print('')
             print("WRONG TYPING. TRY AGAIN.")
+            self.is_On = False
 
 
+    def builtApizza(self):
+        """This method counts the toppings I select to build the pizza.
+        The maximum number of toppings that I can select is 4.
+        If I want to change this number I can do it from the attribute (self.maximum_toppings)"""
 
+        while self.is_On:
+            self.showToppings()
+            self.availableToppings()
+            self.selectTopping()
+
+
+    def pizzaCounter(self):
+        pass
+                
 
 if __name__ == "__main__":
-
     # Create Object from the class Custompizza
     oCustompizza = Custompizza()
 
     # Call methods from the oCustompizza
-    oCustompizza.showToppings()
-    oCustompizza.availableToppings()
-    oCustompizza.selectTopping()
+    oCustompizza.builtApizza()
