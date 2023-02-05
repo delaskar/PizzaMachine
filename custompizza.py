@@ -3,9 +3,8 @@ from prettytable import PrettyTable
 import os
 
 
-
 class Custompizza:
-    
+
     def __init__(self):
         self.category_numbers = []
         self.number_toppings_selected = []  # Store the options of toppings
@@ -16,10 +15,9 @@ class Custompizza:
         self.maximum_toppings = 4
         self.addtion_counter = 0
 
-
     def showToppings(self):
         """This method show the Toppings Category"""
-        
+
         # Create a table category
         oTcatgory = PrettyTable()
         oTcatgory.field_names = ["Number", "Toppings Category"]
@@ -32,16 +30,15 @@ class Custompizza:
 
         print(oTcatgory)
 
-
     def availableToppings(self):
         """This method prints a table of the toppings I have available."""
 
         clear_cmd = 'os.system("clear")'
-       
+
         # Create a available toppings table
         oTtoppings = PrettyTable()
         oTtoppings.field_names = ["Name Category", "Number", "Available Toppings"]
-        
+
         # Check if the user input is a number from the Toppings category
         while True:
             user_topping = input("Enter the number of the category you want to see: ")
@@ -71,7 +68,6 @@ class Custompizza:
         elif user_topping not in self.category_numbers:
             print("Selection must be a number from category. Try again.")
             self.is_On = False
-
 
     def selectTopping(self):
         """This method prints and stores the selected additions."""
@@ -111,7 +107,6 @@ class Custompizza:
             print("WRONG TYPING. TRY AGAIN.")
             self.is_On = False
 
-
     def builtApizza(self):
         """This method counts the toppings I select to build the pizza.
         The maximum number of toppings that I can select is 4.
@@ -122,10 +117,9 @@ class Custompizza:
             self.availableToppings()
             self.selectTopping()
 
-
     def pizzaCounter(self):
         pass
-                
+
 
 if __name__ == "__main__":
     # Create Object from the class Custompizza
