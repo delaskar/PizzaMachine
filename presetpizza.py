@@ -1,5 +1,6 @@
 from menu import MENU
 from prettytable import PrettyTable
+import os
 
 
 # Presetpizza class
@@ -17,6 +18,9 @@ class Presetpizzas:
         self.ingredients = []
         self.prices = []
         self.orderStore = {}
+        
+        self.user_selection = ''
+        self.On = True
 
     def listPresetCategories(self):
         """This method return the list of preset categories"""
@@ -42,69 +46,101 @@ class Presetpizzas:
         # User's letter - Selection of the Category
         self.category_letter = input("Select the category by writing the letter: ")
 
+        # Temporary variables
+        _category_names = ''
+        _pizza_numbers = []
+        _pizza_names = []
+        _ingredients = []
+        _prices = []
+        
         for key1, value1 in MENU[self.category_letter].items():
-            self.category_names = key1
+            _category_names = key1
             for key2, value2 in value1.items():
-                self.pizza_numbers.append(key2)
+                _pizza_numbers.append(key2)
                 for key3, value3 in value2.items():
-                    self.pizza_names.append(key3)
+                    _pizza_names.append(key3)
                     for key4, value4 in value3.items():
                         if key4 == "Ingredients":
-                            self.ingredients.append(value4)
+                            _ingredients.append(value4)
                         if key4 == "price":
-                            self.prices.append(value4)
+                            _prices.append(value4)
 
         # Convert nested list (self.ingredients) to lowercase to save space in the table
-        self.ingredients = [[str(item_).lower()for item_ in sub_list]
-                            for sub_list in self.ingredients]
+        _ingredients = [[str(item_).lower()for item_ in sub_list]
+                            for sub_list in _ingredients]
 
-        category = self.category_names
-        for item in range(0, len(self.pizza_numbers)):
-            numbers = self.pizza_numbers[item]
-            names = self.pizza_names[item]
-            ingredients = self.ingredients[item]
-            price = self.prices[item]
+        category = _category_names
+        for item in range(0, len(_pizza_numbers)):
+            numbers = _pizza_numbers[item]
+            names = _pizza_names[item]
+            ingredients = _ingredients[item]
+            price = _prices[item]
 
             oTable2.add_row([category, numbers, names, ',' .join(ingredients), price])
 
-        return oTable2
+        print(oTable2)
+        
+        self.user_selection = input("Do you want to select an option? Press 'y' or 'n': ")
+        
+        if self.user_selection == 'y':
+            self.category_names = _category_names
+            self.pizza_numbers = _pizza_numbers
+            self.pizza_names = _pizza_names
+            self.ingredients = _ingredients
+            self.prices = _prices
+            pass
+
 
     def defaultOrder(self):
         """This method prints the result of my final order and along 
         with it stores in a variable called 'self.orderStore' a dictionary 
         with the order data."""
 
+        clear_cmd = 'os.system("clear")'
+
         oTotalt = PrettyTable()
         oTotalt.field_names = ["Pizza Selected", "Ingredients", "Total"]
 
-        self.number_selection = int(input("Choose the number of pizza you want: "))
-        number_selected = self.number_selection - 1
+        if self.user_selection == 'y':
+            self.number_selection = int(input("Choose the number of pizza you want: "))
+            number_selected = self.number_selection - 1
 
-        pizzaName = self.pizza_names[number_selected]
-        pizza_ingredients = self.ingredients[number_selected]
-        price = self.prices[number_selected]
+            pizzaName = self.pizza_names[number_selected]
+            pizza_ingredients = self.ingredients[number_selected]
+            price = self.prices[number_selected]
 
-        if self.number_selection in self.pizza_numbers:
-            pizzaIngredients = ',' .join(pizza_ingredients)
-            oTotalt.add_row([pizzaName, pizzaIngredients, price])
+            if self.number_selection in self.pizza_numbers:
+                pizzaIngredients = ',' .join(pizza_ingredients)
+                oTotalt.add_row([pizzaName, pizzaIngredients, price])
 
-            # Created a Dictionary as a new attribute to store the order and later be able to loop while
-            self.orderStore['pizza'] = pizzaName
-            self.orderStore['ingredient'] = pizzaIngredients
-            self.orderStore['price'] = price
+                # Created a Dictionary as a new attribute to store the order and later be able to loop while
+                self.orderStore['pizza'] = pizzaName
+                self.orderStore['ingredient'] = pizzaIngredients
+                self.orderStore['price'] = price
 
-        print("")
-        print("↓↓↓ Here is your order and the total to pay. ↓↓↓")
-        print("")
-        print(oTotalt)
+            print("")
+            print("↓↓↓ Here is your order and the total to pay. ↓↓↓")
+            print("")
+            print(oTotalt)
+            print("")
+            self.On = False
+
+        elif self.user_selection == 'n':
+            exec(clear_cmd)
+            pass
+
+        else:
+            print("WRONG TYPING. TRY AGAIN")
+
 
 
     def builtApresetPizza(self):
 
-        self.listPresetCategories()
-        print(self.defaultPizza())
-        self.defaultOrder()
-        print(self.orderStore)
+        while self.On:
+            self.listPresetCategories()
+            self.defaultPizza()
+            self.defaultOrder()
+
 
 
 if __name__ == "__main__":
