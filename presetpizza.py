@@ -98,18 +98,21 @@ class Presetpizzas:
         print("")
         print(oTotalt)
 
-# I need create a paymant method. Your purchese is successful
+
+    def builtApresetPizza(self):
+
+        self.listPresetCategories()
+        print(self.defaultPizza())
+        self.defaultOrder()
+        print(self.orderStore)
+
 
 if __name__ == "__main__":
-
     # Create the Object "oPresetPizza"
     oPresetPizza = Presetpizzas()
 
     # Call methods from the Object (oPresetPizza)
-    oPresetPizza.listPresetCategories()
-    print(oPresetPizza.defaultPizza())
-    oPresetPizza.defaultOrder()
-    print(oPresetPizza.orderStore)
+    oPresetPizza.builtApresetPizza()
 
     print("")
     print("This is the class Presetpizza")

@@ -14,6 +14,7 @@ class Custompizza:
         self.back_off = ''
         self.maximum_toppings = 4
         self.addtion_counter = 0
+        self.fixed_price = 10
 
     def showToppings(self):
         """This method show the Toppings Category"""
@@ -75,7 +76,7 @@ class Custompizza:
         clear_cmd = 'os.system("clear")'
 
         oTselection = PrettyTable()
-        oTselection.field_names = ["Toppings Selected"]
+        oTselection.field_names = ["Custom Pizza Order"]
 
         self.back_off = input("Do you want to select an option? Press 'y' or 'n': ").lower()
         if self.back_off == 'n':
@@ -97,6 +98,7 @@ class Custompizza:
             if self.addtion_counter == self.maximum_toppings:
                 for item in self.topping_selected:
                     oTselection.add_row([item])
+                print("<====== Here is your Custom Pizza ======>")
                 print(oTselection)
                 self.is_On = False
             elif self.addtion_counter != self.maximum_toppings:
@@ -117,8 +119,17 @@ class Custompizza:
             self.availableToppings()
             self.selectTopping()
 
-    def pizzaCounter(self):
-        pass
+
+    def payment(self, amount):
+        
+        try:
+            amount = float(amount)
+            if amount >= 0:
+                return True
+            else:
+                return False
+        except ValueError:
+            return False
 
 
 if __name__ == "__main__":
