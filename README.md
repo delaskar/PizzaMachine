@@ -17,7 +17,11 @@ To run **"Pizza Machine"** you must follow the following instructions in the Ter
 
 **IMPORTANT NOTE:** This project was developed with **python** **version** **3.10.6**
 To install this version of python. First make sure you have your virtual environment active. Then type the following command:
-**python3.10 -m pip install --upgrade pip**  OR you can also: **pip install python==3.10.6**
+
+**python3.10 -m pip install --upgrade pip**  
+OR you can also: 
+**pip install python==3.10.6**
 
 Thank you so much!!
+
 Enjoy!!
