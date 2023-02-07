@@ -8,7 +8,7 @@ MENU = {
                         "fresh mozzarella",
                         "special T sauce",
                         "basil"
-                    ], "price": 50.0
+                    ], "price": 10.0
                 }
             },
             2: {
@@ -20,7 +20,7 @@ MENU = {
                         "pepperoni",
                         "pickled fresno chilies",
                         "red pepper flakes"
-                    ], "price": 65.0
+                    ], "price": 14.0
                 }
             },
             3: {
@@ -33,7 +33,7 @@ MENU = {
                         "buffalo sauce",
                         "ranch dressing",
                         "crumbled blue cheese"
-                    ], "price": 70.0
+                    ], "price": 12.0
                 }
             },
             4: {
@@ -46,7 +46,7 @@ MENU = {
                         "italian sausage",
                         "basil pesto",
                         "parmesan-romano"
-                    ], "price": 65.0
+                    ], "price": 10.0
                 }
             },
             5: {
@@ -59,7 +59,7 @@ MENU = {
                         "goat cheese",
                         "hot honey",
                         "red pepper flakes"
-                    ], "price": 70.5
+                    ], "price": 12.5
                 }
             },
         }
@@ -74,7 +74,7 @@ MENU = {
                         "GRILLED ONION",
                         "PARMESAN-ROMANO",
                         "BASIL PESTO"
-                    ], "price": 66.0
+                    ], "price": 16.0
                 }
             },
             2: {
@@ -87,7 +87,7 @@ MENU = {
                         "KAMALA OLIVES",
                         "FETA",
                         "FIG BALSAMIC"
-                    ], "price": 78.3
+                    ], "price": 18.3
                 }
             },
             3: {
@@ -99,7 +99,7 @@ MENU = {
                         "BACON",
                         "CHICKEN",
                         "BBQ SAUCE"
-                    ], "price": 90.5
+                    ], "price": 14.5
                 }
             },
             4: {
@@ -111,7 +111,7 @@ MENU = {
                         "JALAPENO PEPPERS",
                         "BACON",
                         "HOT HONEY"
-                    ], "price": 55.0
+                    ], "price": 13.0
                 }
             },
         }
@@ -125,7 +125,7 @@ MENU = {
                         "CHOCOLATE SAUCE DRIZZLE",
                         "VANILLA ICING DRIZZLE",
                         "POWDERED SUGAR"
-                    ], "price": 66.0
+                    ], "price": 10.5
                 }
             },
             2: {
@@ -137,7 +137,7 @@ MENU = {
                         "THE BLEND",
                         "GARLIC PUREE DRIZZLE",
                         "CLASSIC TOMATO"
-                    ], "price": 80.0
+                    ], "price": 12.0
                 }
             },
             3: {
@@ -149,7 +149,7 @@ MENU = {
                         "GARLIC PUREE DRIZZLE",
                         "GRATED PARMESAN-ROMANO",
                         "TOMATO"
-                    ], "price": 75.0
+                    ], "price": 12.0
                 }
             },
             4: {
@@ -163,7 +163,7 @@ MENU = {
                         "HOT HONEY",
                         "THE BLEND",
                         "CLASSIC TOMATO"
-                    ], "price": 100.0
+                    ], "price": 10.0
                 }
             },
             5: {
@@ -176,7 +176,7 @@ MENU = {
                         "CHICKEN",
                         "BACON",
                         "RANCH"
-                    ], "price": 85.4
+                    ], "price": 15.0
                 }
             },
             6: {
@@ -189,7 +189,7 @@ MENU = {
                         "THE BLEND",
                         "CRACKED BLACK PEPPER",
                         "GARLIC PUREE"
-                    ], "price": 95.0
+                    ], "price": 18.0
                 }
             },
             7: {
@@ -202,7 +202,7 @@ MENU = {
                         "MEATBALL",
                         "BANANA PEPPERS",
                         "PARMESAN-ROMANO"
-                    ], "price": 75.0
+                    ], "price": 15.0
                 }
             }
         }
@@ -217,7 +217,7 @@ MENU = {
                         "GRILLED ONION",
                         "PEPPERONI",
                         "BLUE CHEESE"
-                    ], "price": 60.0
+                    ], "price": 13.0
                 }
             },
             2: {
@@ -228,7 +228,7 @@ MENU = {
                         "FRESH MOZZARELLA",
                         "GOAT CHEESE",
                         "FIG BALSAMIC"
-                    ], "price": 66.0
+                    ], "price": 14.0
                 }
             },
             3: {
@@ -239,7 +239,7 @@ MENU = {
                         "SHREDDED MOZZARELLA",
                         "PEPPERONI",
                         "RANCH"
-                    ], "price": 55.0
+                    ], "price": 12.0
                 }
             },
             4: {
@@ -251,7 +251,7 @@ MENU = {
                         "GRILLED ONIONS",
                         "ITALIAN SAUSAGE",
                         "HOT HONEY"
-                    ], "price": 66.0
+                    ], "price": 15.0
                 }
             },
             5: {
@@ -262,7 +262,7 @@ MENU = {
                         "FRESH MOZZARELLA",
                         "SHREDDED MOZZARELLA",
                         "PARMESAN-ROMANO"
-                    ], "price": 55.0
+                    ], "price": 12.0
                 }
             }
         }
@@ -277,7 +277,7 @@ MENU = {
                         "PEPPERONI",
                         "ITALIAN SAUSAGE",
                         "BACON"
-                    ], "price": 55.0
+                    ], "price": 13.0
                 }
             },
             2: {
@@ -287,7 +287,7 @@ MENU = {
                     "SHREDDED MOZZARELLA",
                     "PEPPERONI",
                     "ITALIAN SAUSAGE"
-                ], "price": 55.0
+                ], "price": 12.0
             }
             },
             3: {
@@ -296,7 +296,7 @@ MENU = {
                         "PARM-ROMANO SAUCE",
                         "SHREDDED MOZZARELLA",
                         "CRACKED BLACK PEPPER"
-                    ], "price": 45.0
+                    ], "price": 12.5
                 }
             },
             4: {
@@ -305,7 +305,7 @@ MENU = {
                         "CLASSIC SAUCE",
                         "SHREDDED MOZZARELLA",
                         "PEPPERONI"
-                    ], "price": 45.0
+                    ], "price": 10.0
                 }
             },
             5: {
@@ -314,7 +314,7 @@ MENU = {
                         "PARM-ROMANO SAUCE",
                         "SHREDDED MOZZARELLA",
                         "PEPPERONI"
-                    ], "price": 46.5
+                    ], "price": 10.0
                 }
             }
         }
@@ -332,7 +332,7 @@ MENU = {
                         "CRUSHED RED PEPPER",
                         "CRACKED BLACK PEPPER",
                         "GARLIC PUREE"
-                    ], "price": 75.0
+                    ], "price": 18.0
                 }
             },
         }

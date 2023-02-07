@@ -14,7 +14,7 @@ class Custompizza:
         self.back_off = ''
         self.maximum_toppings = 4
         self.addtion_counter = 0
-        self.fixed_price = 10
+        self.fixed_price = 15
 
     def showToppings(self):
         """This method show the Toppings Category"""
@@ -100,6 +100,7 @@ class Custompizza:
                     oTselection.add_row([item])
                 print("<====== Here is your Custom Pizza ======>")
                 print(oTselection)
+                print(f"Your total is: ${self.fixed_price}")
                 self.is_On = False
             elif self.addtion_counter != self.maximum_toppings:
                 print(f"You have selected ===> {self.addtion_counter} Toppings")
@@ -120,7 +121,8 @@ class Custompizza:
             self.selectTopping()
 
 
-    def payment(self, amount):
+    def is_valid_amount(self, amount):
+        """This metho verify is the amount is valid"""
         
         try:
             amount = float(amount)
@@ -130,6 +132,29 @@ class Custompizza:
                 return False
         except ValueError:
             return False
+        
+
+    def payment(self, amount):
+        """This method makes the payment"""
+
+        if self.is_valid_amount(amount):
+            amount = float(amount)
+            if amount > self.fixed_price:
+                result = amount - self.fixed_price
+                print("")
+                print(f"Thank you for your purchese!\nHere is your remain: ${result}")
+                print("Enjoy you pizza!")
+            elif amount < self.fixed_price:
+                print("")
+                print(f"Your amount: ${amount} is not enough.")
+            elif amount == self.fixed_price:
+                print("")
+                print("Thank your for your purchese!")
+                print("Enjoy your pizza!")
+        else:
+            print("")
+            print("The amount is invalid")
+
 
 
 if __name__ == "__main__":
