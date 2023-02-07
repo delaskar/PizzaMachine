@@ -158,7 +158,6 @@ class Presetpizzas:
             print("WRONG TYPING. TRY AGAIN")
 
 
-
     def builtApresetPizza(self):
         """This method processes the pizza"""
 
@@ -183,20 +182,32 @@ class Presetpizzas:
 
     def payment(self, amount):
             """This method makes the payment"""
-            
-            if self.is_valid_amount(amount):
-                amount = float(amount)
-                if amount > self.orderStore['price']:
-                    result = amount - self.orderStore['price']
-                    print(f"Thank you for your purchese!\nHere is your remain: ${result}")
-                    print("Enjoy you pizza!")
-                elif amount < self.orderStore['price']:
-                    print(f"Your amount: ${amount} is not enough.")
-                elif amount == self.orderStore['price']:
-                    print("Thank your for your purchese!")
-                    print("Enjoy your pizza!")
-            else:
-                print("The amount is invalid")
+
+            try:
+                with open("pizzaASCII.txt", "r") as file:
+                    content = file.read()
+                
+                if self.is_valid_amount(amount):
+                    amount = float(amount)
+                    if amount > self.orderStore['price']:
+                        result = amount - self.orderStore['price']
+                        print(f"Thank you for your purchese!\nHere is your remain: ${result}")
+                        print("Enjoy you pizza!")
+                        print(content)
+                        print()
+                    elif amount < self.orderStore['price']:
+                        print(f"Your amount: ${amount} is not enough.")
+                    elif amount == self.orderStore['price']:
+                        print("Thank your for your purchese!")
+                        print("Enjoy your pizza!")
+                        print(content)
+                        print()
+                else:
+                    print("The amount is invalid")
+
+            except KeyError:
+                
+                print("Your choice is wrong!")
 
 
 if __name__ == "__main__":

@@ -82,7 +82,14 @@ class Custompizza:
         if self.back_off == 'n':
             exec(clear_cmd)
         elif self.back_off == 'y':
-            number_selection = int(input("Write the number of your choice: "))
+            while True:
+                number_selection = input("Write the number of your choice: ")
+                if number_selection.isdigit():
+                    break
+                else:
+                    print("Selection must be a number from list.")
+
+            number_selection = int(number_selection)
             exec(clear_cmd)
             if number_selection in self.number_toppings_selected:
                 index_selected = number_selection - 1
@@ -137,6 +144,9 @@ class Custompizza:
     def payment(self, amount):
         """This method makes the payment"""
 
+        with open("pizzaASCII.txt", "r") as file:
+                content = file.read()
+
         if self.is_valid_amount(amount):
             amount = float(amount)
             if amount > self.fixed_price:
@@ -144,6 +154,8 @@ class Custompizza:
                 print("")
                 print(f"Thank you for your purchese!\nHere is your remain: ${result}")
                 print("Enjoy you pizza!")
+                print(content)
+                print("")
             elif amount < self.fixed_price:
                 print("")
                 print(f"Your amount: ${amount} is not enough.")
@@ -151,6 +163,8 @@ class Custompizza:
                 print("")
                 print("Thank your for your purchese!")
                 print("Enjoy your pizza!")
+                print(content)
+                print("")
         else:
             print("")
             print("The amount is invalid")
